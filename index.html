@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marco de Foto Espiral</title>
+
+</head>
+<body>
+    <h1 class="title">Mi Recuerdo</h1>
+    <div class="frame-container">
+        <img src="/api/placeholder/300/300" alt="Tu foto" class="photo">
+        <div id="spiral-frame"></div>
+    </div>
+    <script>
+        function createSpiralFrame() {
+            const container = document.getElementById('spiral-frame');
+            const totalSegments = 15; // Reduje el número de segmentos
+            const baseSize = 285; // Tamaño base más cercano a la foto
+            const sizeIncrement = 5; // Reduje el incremento entre segmentos
+            const angleIncrement = 12; // Ajusté el ángulo para mantener la distribución
+
+            for (let i = 0; i < totalSegments; i++) {
+                const segment = document.createElement('div');
+                segment.className = 'spiral-segment';
+                
+                const size = baseSize + (i * sizeIncrement);
+                segment.style.width = size + 'px';
+                segment.style.height = size + 'px';
+                
+                segment.style.top = `calc(50% - ${size/2}px)`;
+                segment.style.left = `calc(50% - ${size/2}px)`;
+                
+                segment.style.transform = `rotate(${i * angleIncrement}deg)`;
+                segment.style.animationDelay = `${i * 0.1}s`;
+                
+                container.appendChild(segment);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', createSpiralFrame);
+    </script>
+</body>
+</html>
