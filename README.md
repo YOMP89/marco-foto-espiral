@@ -1,4 +1,3 @@
-README.md
 
 # Marco de Foto Espiral
 
