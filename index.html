@@ -4,7 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marco de Foto Espiral</title>
+ <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #1a1a1a;
+            font-family: Arial, sans-serif;
+        }
 
+        .title {
+            font-size: 3em;
+            margin-bottom: 30px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            text-shadow: 
+                0 0 7px #fff,
+                0 0 10px #fff,
+                0 0 21px #fff,
+                0 0 42px #5271ff,
+                0 0 82px #5271ff,
+                0 0 92px #5271ff,
+                0 0 102px #5271ff,
+                0 0 151px #5271ff;
+            animation: neon 1.5s ease-in-out infinite alternate;
+        }
+
+        .frame-container {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            margin: 50px;
+        }
+
+        .photo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            z-index: 1;
+            border-radius: 4px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+
+        .spiral-segment {
+            position: absolute;
+            border: 1.5px solid; /* Reduje el grosor del borde */
+            border-radius: 5px;
+            animation: rotate 10s linear infinite, colorChange 5s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes colorChange {
+            0% { border-color: #ff0000; }
+            20% { border-color: #ffff00; }
+            40% { border-color: #00ff00; }
+            60% { border-color: #00ffff; }
+            80% { border-color: #ff00ff; }
+            100% { border-color: #ff0000; }
+        }
+
+        @keyframes neon {
+            from {
+                text-shadow: 
+                    0 0 7px #fff,
+                    0 0 10px #fff,
+                    0 0 21px #fff,
+                    0 0 42px #5271ff,
+                    0 0 82px #5271ff,
+                    0 0 92px #5271ff,
+                    0 0 102px #5271ff,
+                    0 0 151px #5271ff;
+            }
+            to {
+                text-shadow: 
+                    0 0 7px #fff,
+                    0 0 10px #fff,
+                    0 0 21px #fff,
+                    0 0 42px #bc13fe,
+                    0 0 82px #bc13fe,
+                    0 0 92px #bc13fe,
+                    0 0 102px #bc13fe,
+                    0 0 151px #bc13fe;
+            }
+        }
+    </style>
 </head>
 <body>
     <h1 class="title">Mi Recuerdo</h1>
